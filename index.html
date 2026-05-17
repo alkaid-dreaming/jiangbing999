@@ -3,49 +3,62 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>给最爱的你</title>
+  <title>给最特别的你</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
   <style>
     :root{
       --bg1:#fff8fb;
-      --bg2:#fff2f6;
-      --bg3:#f7fbff;
-      --text:#1f1f26;
-      --muted:#5f6572;
-      --soft:#ffffffb8;
-      --card:rgba(255,255,255,.70);
-      --card2:rgba(255,255,255,.88);
-      --line:rgba(32,36,46,.08);
+      --bg2:#fff4f7;
+      --bg3:#f6fbff;
+      --text:#1d1f29;
+      --muted:#5d6471;
+      --card:rgba(255,255,255,.74);
+      --card2:rgba(255,255,255,.9);
+      --line:rgba(31,35,46,.08);
       --shadow:0 22px 60px rgba(67,58,87,.10);
       --pink:#ff7ea8;
       --rose:#ff9fbc;
-      --peach:#ffd2b8;
+      --peach:#ffd4be;
       --lavender:#d9c8ff;
       --blue:#b8dcff;
       --mint:#c6f3dd;
-      --gold:#ffe29a;
-      --deep:#1d2030;
-      --radius:28px;
+      --gold:#ffe49f;
+      --deep:#161826;
     }
 
-    *{ box-sizing:border-box; margin:0; padding:0; }
-    html{ scroll-behavior:smooth; }
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
     body{
       font-family:"Noto Sans SC", sans-serif;
       color:var(--text);
       overflow-x:hidden;
       background:
-        radial-gradient(circle at 12% 10%, rgba(255,126,168,.22), transparent 18%),
-        radial-gradient(circle at 88% 12%, rgba(184,220,255,.30), transparent 16%),
-        radial-gradient(circle at 20% 88%, rgba(214,200,255,.32), transparent 18%),
-        radial-gradient(circle at 82% 86%, rgba(255,226,154,.26), transparent 18%),
+        radial-gradient(circle at 10% 12%, rgba(255,126,168,.18), transparent 18%),
+        radial-gradient(circle at 88% 10%, rgba(184,220,255,.28), transparent 16%),
+        radial-gradient(circle at 16% 88%, rgba(214,200,255,.28), transparent 18%),
+        radial-gradient(circle at 84% 84%, rgba(255,228,159,.22), transparent 18%),
         linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 48%, var(--bg3) 100%);
     }
 
-    a{ color:inherit; text-decoration:none; }
-    .wrap{ position:relative; z-index:1; }
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .wrap{
+      position:relative;
+      z-index:1;
+    }
 
     .noise{
       pointer-events:none;
@@ -66,14 +79,14 @@
       height:260px;
       border-radius:50%;
       filter:blur(30px);
-      opacity:.35;
+      opacity:.32;
       z-index:0;
       pointer-events:none;
       animation: floaty 12s ease-in-out infinite alternate;
     }
-    .blob.one{ top:8%; left:-70px; background:radial-gradient(circle, rgba(255,126,168,.9), rgba(255,126,168,0)); }
-    .blob.two{ top:18%; right:-80px; background:radial-gradient(circle, rgba(184,220,255,.9), rgba(184,220,255,0)); animation-duration:14s; }
-    .blob.three{ bottom:8%; left:18%; background:radial-gradient(circle, rgba(255,226,154,.9), rgba(255,226,154,0)); animation-duration:16s; }
+    .blob.one{ top:7%; left:-75px; background:radial-gradient(circle, rgba(255,126,168,.9), rgba(255,126,168,0)); }
+    .blob.two{ top:18%; right:-90px; background:radial-gradient(circle, rgba(184,220,255,.9), rgba(184,220,255,0)); animation-duration:14s; }
+    .blob.three{ bottom:10%; left:20%; background:radial-gradient(circle, rgba(255,228,159,.9), rgba(255,228,159,0)); animation-duration:16s; }
 
     .section{
       width:min(1180px, calc(100% - 28px));
@@ -92,9 +105,8 @@
 
     .hero-card{
       width:min(1220px, 100%);
-      border:1px solid rgba(255,255,255,.85);
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.82), rgba(255,255,255,.56));
+      border:1px solid rgba(255,255,255,.84);
+      background:linear-gradient(180deg, rgba(255,255,255,.84), rgba(255,255,255,.58));
       box-shadow:var(--shadow);
       border-radius:36px;
       overflow:hidden;
@@ -109,7 +121,7 @@
       background:
         radial-gradient(circle at 18% 18%, rgba(255,126,168,.16), transparent 16%),
         radial-gradient(circle at 82% 20%, rgba(184,220,255,.18), transparent 18%),
-        radial-gradient(circle at 70% 82%, rgba(255,226,154,.14), transparent 16%);
+        radial-gradient(circle at 70% 82%, rgba(255,228,159,.15), transparent 16%);
       pointer-events:none;
     }
 
@@ -139,11 +151,12 @@
       gap:10px;
       padding:12px 18px;
       border-radius:999px;
-      background:rgba(255,255,255,.74);
-      border:1px solid rgba(31,31,38,.06);
+      background:rgba(255,255,255,.78);
+      border:1px solid rgba(31,35,46,.06);
       box-shadow:0 8px 26px rgba(67,58,87,.06);
       white-space:nowrap;
     }
+
     .dot{
       width:10px;
       height:10px;
@@ -167,11 +180,12 @@
       padding:10px 16px;
       border-radius:999px;
       background:rgba(255,255,255,.8);
-      border:1px solid rgba(31,31,38,.06);
+      border:1px solid rgba(31,35,46,.06);
       color:var(--muted);
       font-size:14px;
       margin-bottom:18px;
     }
+
     .eyebrow b{ color:var(--deep); }
 
     h1{
@@ -193,7 +207,7 @@
       max-width:760px;
       font-size:clamp(16px, 1.9vw, 21px);
       line-height:2;
-      color:#4c5360;
+      color:#4e5562;
       text-wrap:pretty;
     }
 
@@ -211,8 +225,8 @@
       gap:10px;
       padding:14px 22px;
       border-radius:999px;
-      border:1px solid rgba(31,31,38,.10);
-      background:rgba(255,255,255,.72);
+      border:1px solid rgba(31,35,46,.10);
+      background:rgba(255,255,255,.74);
       color:#23262f;
       font-weight:700;
       transition:.25s ease;
@@ -227,7 +241,7 @@
     }
 
     .btn.primary{
-      background:linear-gradient(135deg, rgba(255,126,168,.97), rgba(255,226,154,.97));
+      background:linear-gradient(135deg, rgba(255,126,168,.97), rgba(255,228,159,.97));
       color:#1f1f26;
       border-color:transparent;
     }
@@ -250,7 +264,7 @@
         radial-gradient(circle at 20% 20%, rgba(255,255,255,.95), rgba(255,255,255,.55) 25%, transparent 26%),
         radial-gradient(circle at 80% 26%, rgba(255,255,255,.9), rgba(255,255,255,.45) 24%, transparent 25%),
         linear-gradient(180deg, rgba(255,247,251,.95), rgba(244,248,255,.92));
-      border:1px solid rgba(31,31,38,.06);
+      border:1px solid rgba(31,35,46,.06);
       overflow:hidden;
       box-shadow:inset 0 0 0 1px rgba(255,255,255,.45);
     }
@@ -262,15 +276,14 @@
       background:
         radial-gradient(circle at 16% 76%, rgba(255,126,168,.18), transparent 14%),
         radial-gradient(circle at 84% 76%, rgba(184,220,255,.18), transparent 16%),
-        radial-gradient(circle at 50% 50%, rgba(255,226,154,.18), transparent 18%);
+        radial-gradient(circle at 50% 50%, rgba(255,228,159,.18), transparent 18%);
       opacity:.85;
     }
 
     .orb{
       position:absolute;
       border-radius:50%;
-      filter:blur(0px);
-      animation: bob 8s ease-in-out infinite alternate;
+      animation:bob 8s ease-in-out infinite alternate;
       opacity:.95;
     }
     .orb.one{ width:120px; height:120px; left:10%; top:18%; background:radial-gradient(circle at 35% 35%, #fff, #ffe8ef 38%, #ffb8cd 100%); }
@@ -281,7 +294,7 @@
     .tiny-heart{
       position:absolute;
       font-size:22px;
-      animation: bob 7s ease-in-out infinite alternate;
+      animation:bob 7s ease-in-out infinite alternate;
       opacity:.85;
       user-select:none;
     }
@@ -302,7 +315,7 @@
       padding:11px 16px;
       border-radius:999px;
       background:rgba(255,255,255,.80);
-      border:1px solid rgba(31,31,38,.06);
+      border:1px solid rgba(31,35,46,.06);
       color:#3f4754;
       font-size:13px;
       box-shadow:0 8px 22px rgba(67,58,87,.05);
@@ -351,7 +364,7 @@
     }
 
     .panel{
-      border:1px solid rgba(31,31,38,.07);
+      border:1px solid rgba(31,35,46,.07);
       background:linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.68));
       border-radius:28px;
       box-shadow:var(--shadow);
@@ -423,16 +436,15 @@
 
     .event .date{
       padding:24px;
-      color:rgba(31,31,38,.92);
+      color:rgba(31,35,46,.92);
       font-weight:800;
       letter-spacing:.3px;
       font-size:22px;
       display:flex;
       align-items:flex-start;
       justify-content:flex-start;
-      background:
-        linear-gradient(180deg, rgba(255,126,168,.12), rgba(255,255,255,.70));
-      border-right:1px solid rgba(31,31,38,.05);
+      background:linear-gradient(180deg, rgba(255,126,168,.12), rgba(255,255,255,.70));
+      border-right:1px solid rgba(31,35,46,.05);
     }
 
     .event .content{
@@ -464,7 +476,7 @@
       font-size:12px;
       color:#3b4150;
       background:rgba(255,255,255,.84);
-      border:1px solid rgba(31,31,38,.06);
+      border:1px solid rgba(31,35,46,.06);
     }
 
     .tag.pink{ background:rgba(255,240,246,.95); }
@@ -512,7 +524,7 @@
       padding:8px 12px;
       border-radius:999px;
       background:rgba(255,255,255,.84);
-      border:1px solid rgba(31,31,38,.06);
+      border:1px solid rgba(31,35,46,.06);
       color:#3b4150;
       font-size:12px;
       letter-spacing:.4px;
@@ -523,6 +535,91 @@
     .story-card.three{ grid-column:span 4; }
     .story-card.four{ grid-column:span 6; }
     .story-card.five{ grid-column:span 6; }
+
+    .letter-shell{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:18px;
+      align-items:stretch;
+    }
+
+    .letter-panel{
+      padding:28px;
+      min-height:420px;
+    }
+
+    .letter-title{
+      font-size:24px;
+      font-weight:900;
+      margin-bottom:14px;
+      letter-spacing:-.5px;
+    }
+
+    .letter-text{
+      font-size:17px;
+      line-height:2.05;
+      color:#3f4654;
+      white-space:pre-wrap;
+      word-break:break-word;
+    }
+
+    .frame{
+      position:relative;
+      min-height:420px;
+      overflow:hidden;
+      border-radius:24px;
+      background:
+        radial-gradient(circle at 22% 18%, rgba(255,126,168,.14), transparent 18%),
+        radial-gradient(circle at 78% 22%, rgba(184,220,255,.16), transparent 16%),
+        radial-gradient(circle at 62% 76%, rgba(255,228,159,.14), transparent 18%),
+        linear-gradient(180deg, rgba(255,255,255,.86), rgba(255,255,255,.62));
+      border:1px solid rgba(31,35,46,.06);
+    }
+
+    .frame .ring{
+      position:absolute;
+      border-radius:50%;
+      border:1px dashed rgba(31,35,46,.08);
+      animation:spin 24s linear infinite;
+    }
+    .frame .ring.r1{ width:260px; height:260px; top:46px; left:50%; transform:translateX(-50%); }
+    .frame .ring.r2{ width:180px; height:180px; top:86px; left:50%; transform:translateX(-50%); animation-direction:reverse; }
+
+    .confetti{
+      position:absolute;
+      width:10px;
+      height:10px;
+      border-radius:3px;
+      opacity:.85;
+      animation:drift2 10s linear infinite;
+    }
+    .c1{ top:14%; left:14%; background:#ff9ebd; }
+    .c2{ top:22%; right:18%; background:#93c5ff; animation-duration:12s; }
+    .c3{ bottom:22%; left:18%; background:#f7d07f; animation-duration:14s; }
+    .c4{ bottom:12%; right:14%; background:#bfb0ff; animation-duration:11s; }
+    .c5{ top:48%; left:10%; background:#8fe2b9; animation-duration:15s; }
+
+    .frame .message{
+      position:absolute;
+      inset:auto 26px 26px 26px;
+      padding:18px 18px 16px;
+      border-radius:22px;
+      background:rgba(255,255,255,.80);
+      border:1px solid rgba(31,35,46,.06);
+      box-shadow:0 10px 24px rgba(67,58,87,.05);
+      text-align:left;
+    }
+
+    .message strong{
+      display:block;
+      font-size:18px;
+      margin-bottom:8px;
+    }
+    .message span{
+      color:var(--muted);
+      line-height:1.8;
+      font-size:14px;
+    }
 
     .end{
       text-align:center;
@@ -564,103 +661,8 @@
     .divider{
       height:1px;
       width:100%;
-      background:linear-gradient(90deg, transparent, rgba(31,31,38,.10), transparent);
+      background:linear-gradient(90deg, transparent, rgba(31,35,46,.10), transparent);
       margin:30px 0;
-    }
-
-    .letter-shell{
-      display:grid;
-      grid-template-columns:1.05fr .95fr;
-      gap:18px;
-      align-items:stretch;
-    }
-
-    .letter-panel{
-      padding:28px;
-      min-height:420px;
-    }
-
-    .letter-title{
-      font-size:24px;
-      font-weight:900;
-      margin-bottom:14px;
-      letter-spacing:-.5px;
-    }
-
-    .typebox{
-      position:relative;
-      font-size:17px;
-      line-height:2.05;
-      color:#3f4654;
-      min-height:300px;
-      white-space:pre-wrap;
-      word-break:break-word;
-    }
-
-    .cursor{
-      display:inline-block;
-      width:1ch;
-      animation: blink 1s steps(1) infinite;
-      color:var(--pink);
-      font-weight:900;
-    }
-
-    .frame{
-      position:relative;
-      min-height:420px;
-      overflow:hidden;
-      border-radius:24px;
-      background:
-        radial-gradient(circle at 22% 18%, rgba(255,126,168,.14), transparent 18%),
-        radial-gradient(circle at 78% 22%, rgba(184,220,255,.16), transparent 16%),
-        radial-gradient(circle at 62% 76%, rgba(255,226,154,.14), transparent 18%),
-        linear-gradient(180deg, rgba(255,255,255,.86), rgba(255,255,255,.62));
-      border:1px solid rgba(31,31,38,.06);
-    }
-
-    .frame .ring{
-      position:absolute;
-      border-radius:50%;
-      border:1px dashed rgba(31,31,38,.08);
-      animation: spin 24s linear infinite;
-    }
-    .frame .ring.r1{ width:260px; height:260px; top:46px; left:50%; transform:translateX(-50%); }
-    .frame .ring.r2{ width:180px; height:180px; top:86px; left:50%; transform:translateX(-50%); animation-direction:reverse; }
-
-    .confetti{
-      position:absolute;
-      width:10px;
-      height:10px;
-      border-radius:3px;
-      opacity:.85;
-      animation: drift2 10s linear infinite;
-    }
-    .c1{ top:14%; left:14%; background:#ff9ebd; }
-    .c2{ top:22%; right:18%; background:#93c5ff; animation-duration:12s; }
-    .c3{ bottom:22%; left:18%; background:#f7d07f; animation-duration:14s; }
-    .c4{ bottom:12%; right:14%; background:#bfb0ff; animation-duration:11s; }
-    .c5{ top:48%; left:10%; background:#8fe2b9; animation-duration:15s; }
-
-    .frame .message{
-      position:absolute;
-      inset:auto 26px 26px 26px;
-      padding:18px 18px 16px;
-      border-radius:22px;
-      background:rgba(255,255,255,.80);
-      border:1px solid rgba(31,31,38,.06);
-      box-shadow:0 10px 24px rgba(67,58,87,.05);
-      text-align:left;
-    }
-
-    .message strong{
-      display:block;
-      font-size:18px;
-      margin-bottom:8px;
-    }
-    .message span{
-      color:var(--muted);
-      line-height:1.8;
-      font-size:14px;
     }
 
     @keyframes floaty{
@@ -681,11 +683,6 @@
     @keyframes spin{
       from{ transform:translateX(-50%) rotate(0deg); }
       to{ transform:translateX(-50%) rotate(360deg); }
-    }
-
-    @keyframes blink{
-      0%,49%{ opacity:1; }
-      50%,100%{ opacity:0; }
     }
 
     @media (max-width: 980px){
@@ -722,7 +719,7 @@
 
       .event .date{
         border-right:none;
-        border-bottom:1px solid rgba(31,31,38,.05);
+        border-bottom:1px solid rgba(31,35,46,.05);
       }
 
       .section{
@@ -759,33 +756,33 @@
       <div class="hero-card">
         <div class="hero-inner">
           <div class="topbar">
-            <div class="pill"><span class="dot"></span> 520 纪念网站 · for you</div>
-            <div class="pill">2026 · 认真喜欢 · 慢慢变好</div>
+            <div class="pill"><span class="dot"></span> 520 纪念网页</div>
+            <div class="pill">同班同学 · 半年前开始一起玩 · 越来越好</div>
           </div>
 
           <div class="hero-main">
             <div>
               <div class="eyebrow">致 <b>最特别的你</b></div>
-              <h1 class="gradient">把我们一起走过的时光，写成一页温柔的网页。</h1>
+              <h1 class="gradient">把我们慢慢变熟的日子，做成一份温柔的礼物。</h1>
               <p class="sub">
-                这不是一个复杂的网站，而是一份很认真、很真诚的礼物。
-                我想把那些平常却珍贵的瞬间都装进来：聊天时的心动、见面时的安心、一起走路时的安静、还有很多说不完的喜欢。
-                你看到这页的时候，希望会觉得自己被温柔地放在心上。
+                我们原本只是同班同学，后来因为一起玩，慢慢变得更熟。
+                半年前开始，我们有了更多共同的话题、更多一起走过的时刻、更多值得记住的日常。
+                这些看起来并不轰轰烈烈的片段，拼起来却成了我很珍惜的回忆。
               </p>
 
               <div class="hero-actions">
                 <a class="btn primary" href="#story">开始看故事</a>
                 <a class="btn" href="#timeline">看时间线</a>
-                <a class="btn" href="#letter">读给你的信</a>
+                <a class="btn" href="#letter">看信</a>
               </div>
 
               <div class="bubble-cloud">
-                <span class="mini-chip pink">认真回消息</span>
-                <span class="mini-chip blue">一起吃饭</span>
-                <span class="mini-chip gold">见面很开心</span>
-                <span class="mini-chip green">日常也很甜</span>
-                <span class="mini-chip lav">未来也想一起</span>
-                <span class="mini-chip pink">小小偏爱</span>
+                <span class="mini-chip pink">同班同学</span>
+                <span class="mini-chip blue">一起玩</span>
+                <span class="mini-chip gold">慢慢变熟</span>
+                <span class="mini-chip green">日常很甜</span>
+                <span class="mini-chip lav">很重要的人</span>
+                <span class="mini-chip pink">认真喜欢</span>
               </div>
             </div>
 
@@ -802,8 +799,8 @@
           </div>
 
           <div class="hero-footer">
-            <span>一份礼物，不用很夸张，只要足够真诚。</span>
-            <span>后面你把文字改成你们自己的故事就会更像专属纪念册。</span>
+            <span>把很普通的相处，慢慢写成了特别的记忆。</span>
+            <span>这一页属于你，也属于我们一起变好的这半年。</span>
           </div>
         </div>
       </div>
@@ -813,41 +810,41 @@
       <div class="section-head reveal">
         <div class="section-title">我们的 <span class="accent">故事开场</span></div>
         <div class="section-note">
-          这里是首页正文。现在先放一些通用文字，整体氛围会更完整一些。
-          你后面只要把日期、细节、称呼改成你们自己的内容，这个页面就会变得很私人。
+          从同班到一起玩，从熟悉到越来越在意，很多变化都发生得很自然。
         </div>
       </div>
 
       <div class="glass-grid">
         <div class="panel pad intro reveal">
-          <h2>喜欢一个人，不一定要轰轰烈烈，也可以很安静。</h2>
+          <h2>原来关系变好，不一定需要很大的理由。</h2>
           <p>
-            它可能是手机屏幕亮起时的期待，可能是看到你名字时心里轻轻一跳，
-            也可能是你很普通地说一句“到了”，我却会因此安心很久。
+            有时候只是课间多说了几句话，放学路上多走了一段，
+            或者在某个很普通的时刻，突然发现对方变成了自己很愿意靠近的人。
           </p>
           <p>
-            这段时间里，我们一起留下了很多小片段：一句问候、一次见面、一顿饭、
-            一段路、一个晚上的聊天，甚至只是短短几分钟的陪伴。
-            看起来都很轻，但它们叠在一起，就会变成很重的喜欢。
+            我们就是这样，一点一点从同学变得更熟，
+            一点一点从普通的互动变成会期待见面、期待说话、期待一起玩。
+            半年前开始的这些相处，现在想起来，已经有了很清楚的温度。
           </p>
           <p>
-            所以我想把这些东西做成网站。不是为了证明什么，只是想告诉你：
-            你在我这里，从来都不是随便经过的人。
+            我喜欢这种慢慢靠近的感觉。
+            它不吵闹，不张扬，却很踏实。
+            也正因为这样，我才想把它做成一份礼物，留给你，也留给我们。
           </p>
         </div>
 
         <div class="stats">
           <div class="panel stat pink reveal">
-            <div class="num">半年+</div>
-            <div class="label">时间不算特别长，但已经足够让我确定，和你有关的事情都值得认真记住。</div>
+            <div class="num">半年前</div>
+            <div class="label">从开始一起玩，到现在越来越熟，时间把很多普通的瞬间都变得很珍贵。</div>
           </div>
           <div class="panel stat blue reveal">
             <div class="num">很多次</div>
-            <div class="label">很多次想你，很多次期待见你，很多次因为你的出现而觉得这一天更好过。</div>
+            <div class="label">很多次聊天，很多次见面，很多次一起笑，慢慢把关系推向更靠近的地方。</div>
           </div>
           <div class="panel stat gold reveal">
             <div class="num">以后</div>
-            <div class="label">以后还有很多段路、很多顿饭、很多个普通日子，我都想慢慢和你一起过。</div>
+            <div class="label">以后还有很多普通的日子，但只要有你在，普通也会变得很好看。</div>
           </div>
         </div>
       </div>
@@ -855,108 +852,109 @@
 
     <section id="timeline" class="section">
       <div class="section-head reveal">
-        <div class="section-title">那些被我记住的 <span class="accent">重要瞬间</span></div>
+        <div class="section-title">那些被我记住的 <span class="accent">小片段</span></div>
         <div class="section-note">
-          这一部分会让网页内容更丰富。你后面可以把这些内容替换成你们真实发生过的事情。
+          有些重要的事不需要很大，它们藏在聊天、放学、见面和一起玩的每一个细节里。
         </div>
       </div>
 
       <div class="timeline">
         <div class="panel event reveal">
-          <div class="date">01 · 初次聊天</div>
+          <div class="date">01 · 从同班开始</div>
           <div class="content">
-            <h3>第一句话很普通，但我一直记得。</h3>
+            <h3>一开始只是很普通的同学关系。</h3>
             <p>
-              很多故事的开始都不一定惊天动地，有时候只是一个平常的开头。
-              但真正重要的是，后来我开始反复想起那段聊天，开始期待你的回复，开始觉得你是一个很特别的人。
+              你在教室里、我在教室里，原本只是一起上课、一起听老师讲课的关系。
+              但后面随着接触变多，我开始注意到你这个人很有意思，
+              也开始想更多和你说话。
             </p>
             <div class="tag-row">
-              <span class="tag pink">认真</span>
-              <span class="tag blue">开始</span>
-              <span class="tag gold">心动</span>
+              <span class="tag pink">同班</span>
+              <span class="tag blue">熟悉</span>
+              <span class="tag gold">开始注意</span>
             </div>
             <div class="quote">
-              “从那以后，我的生活里多了一种安静的期待。”
+              “原来最自然的靠近，才最容易被记住。”
             </div>
           </div>
         </div>
 
         <div class="panel event reveal">
-          <div class="date">02 · 第一次见面</div>
+          <div class="date">02 · 一起玩起来</div>
           <div class="content">
-            <h3>见到你的时候，比想象中更紧张，也比想象中更开心。</h3>
+            <h3>后来我们开始一起玩，关系也一点点变得更近。</h3>
             <p>
-              真正见到的时候，很多准备好的话反而说不出来了。
-              可是那种笨拙的紧张并没有让一切变坏，反而让这段记忆变得更真实。
-              你站在那里的时候，我会突然觉得，世界好像一下子柔和了很多。
+              也许是某次聊天刚好很投缘，也许是一起做过什么小事，
+              总之从那之后，我们开始有了更多共同的节奏。
+              和你待在一起的时候，感觉很轻松，也很舒服。
             </p>
             <div class="tag-row">
-              <span class="tag pink">第一次</span>
-              <span class="tag blue">真实</span>
-              <span class="tag green">安心</span>
+              <span class="tag pink">一起玩</span>
+              <span class="tag blue">轻松</span>
+              <span class="tag green">舒服</span>
             </div>
             <div class="quote">
-              “原来喜欢一个人，真的会让见面变得很有意义。”
+              “我喜欢这种不用刻意，却会越来越近的关系。”
             </div>
           </div>
         </div>
 
         <div class="panel event reveal">
-          <div class="date">03 · 一起吃饭</div>
+          <div class="date">03 · 变得更熟</div>
           <div class="content">
-            <h3>很普通的一顿饭，却成了我很想反复回忆的画面。</h3>
+            <h3>越了解你，就越觉得你是一个很值得珍惜的人。</h3>
             <p>
-              不是因为那天吃了什么特别厉害的东西，而是因为坐在对面的人是你。
-              你说话的时候我会忍不住看你，听你讲事情的时候我会觉得很轻松。
-              原来幸福可以这么安静，也可以这么日常。
+              有些喜欢不是一下子冲上来的，它更像一点一点长出来的。
+              你说话的样子、你偶尔的小动作、你认真回应别人的样子，
+              都会让我觉得你很特别。
             </p>
             <div class="tag-row">
-              <span class="tag pink">陪伴</span>
-              <span class="tag blue">日常</span>
-              <span class="tag gold">开心</span>
+              <span class="tag pink">了解</span>
+              <span class="tag blue">在意</span>
+              <span class="tag gold">喜欢</span>
             </div>
             <div class="quote">
-              “最浪漫的事情，有时候就是和你一起好好吃一顿饭。”
+              “越来越熟以后，我反而更确定自己很喜欢和你相处。”
             </div>
           </div>
         </div>
 
         <div class="panel event reveal">
-          <div class="date">04 · 一起走过的路</div>
+          <div class="date">04 · 课间与放学路上</div>
           <div class="content">
-            <h3>有你在的时候，路会变短，风也没那么冷。</h3>
+            <h3>很多最好的回忆，都发生在很普通的时间里。</h3>
             <p>
-              我总觉得和你一起走路时，时间会过得很快。
-              不管是回家路上、散步的时候，还是去见你的路上，
-              只要想到马上就能看到你，连脚步都会变得轻一点。
+              课间的几句话，放学时的一段路，一次顺路的同行，
+              这些看起来都不算大事，但放进记忆里就会变得很温暖。
+              它们让我们的关系慢慢从“认识”变成“很熟”。
             </p>
             <div class="tag-row">
-              <span class="tag pink">一起</span>
-              <span class="tag blue">路上</span>
-              <span class="tag green">温柔</span>
+              <span class="tag pink">课间</span>
+              <span class="tag blue">放学路上</span>
+              <span class="tag green">日常</span>
             </div>
             <div class="quote">
-              “我喜欢所有和你走过的路线，因为它们都在慢慢变成回忆。”
+              “有些回忆很轻，但它们会一直留在心里。”
             </div>
           </div>
         </div>
 
         <div class="panel event reveal">
-          <div class="date">05 · 某个普通夜晚</div>
+          <div class="date">05 · 现在</div>
           <div class="content">
-            <h3>很多重要的喜欢，都是在普通夜晚里悄悄发生的。</h3>
+            <h3>现在的我们，已经比最开始亲近了很多。</h3>
             <p>
-              也许是一个不怎么热闹的晚上，也许是我们都很累的时候，
-              但只要你还在，我就会觉得这一天没有那么难熬。
-              有时候我甚至会想，能和你聊到很晚，本身就是一件很幸运的事。
+              半年前只是开始一起玩，而现在我们已经会认真记住彼此的事情，
+              会因为一点点变化而开心，也会因为熟悉而觉得安心。
+              这种慢慢变好的感觉，我真的很喜欢。
             </p>
             <div class="tag-row">
-              <span class="tag pink">深夜</span>
-              <span class="tag blue">聊天</span>
-              <span class="tag gold">偏爱</span>
+              <span class="tag pink">现在</span>
+              <span class="tag blue">更近</span>
+              <span class="tag gold">珍惜</span>
             </div>
             <div class="quote">
-              “很多话不用一次说完，因为我们还有很多以后可以慢慢聊。”
+              “我想把这份越来越好的关系，继续认真地放在心里。”
             </div>
           </div>
         </div>
@@ -967,73 +965,94 @@
       <div class="section-head reveal">
         <div class="section-title">一些我想认真记下的 <span class="accent">小事情</span></div>
         <div class="section-note">
-          这部分能把网页内容撑得更完整，也会显得更像专门为她做的礼物。
+          这些不是大事件，但它们组成了我们现在的样子。
         </div>
       </div>
 
       <div class="story-grid">
         <div class="panel story-card one reveal">
-          <div class="mark">01 / 细节</div>
-          <h4>你认真回消息的样子很好看</h4>
+          <div class="mark">01 / 互动</div>
+          <h4>你认真回应的时候，我会很开心</h4>
           <p>
-            不是所有喜欢都要很热闹。
-            你一条一条地回我消息，我就会觉得自己被照顾，被重视，被好好放在心上。
-            这种感觉很轻，但真的很暖。
+            有些话题其实很普通，但因为是和你聊，所以会变得不普通。
+            你每次认真回应的时候，我都会觉得自己被放在了很重要的位置。
           </p>
         </div>
 
         <div class="panel story-card two reveal">
-          <div class="mark">02 / 情绪</div>
-          <h4>你出现的时候，很多疲惫都会安静下来</h4>
+          <div class="mark">02 / 相处</div>
+          <h4>和你待在一起，时间会过得更快</h4>
           <p>
-            有些日子其实没那么容易，但只要想到你，心里就会软一点。
-            你像一个很温柔的提醒，让我觉得今天也值得继续往前走。
+            不管是在学校里还是一起出去玩，只要和你在一起，感觉总是很自然。
+            不需要太多理由，也不需要刻意找话题，安静待着都很舒服。
           </p>
         </div>
 
         <div class="panel story-card three reveal">
-          <div class="mark">03 / 未来</div>
-          <h4>我想把你放进很多个明天</h4>
+          <div class="mark">03 / 情绪</div>
+          <h4>你会让很多普通的日子变得更值得期待</h4>
           <p>
-            未来这个词有点大，但只要是和你一起，我就愿意慢慢往前。
-            先不说太远的事，先把今天过好，再把明天也一起过好。
+            以前觉得平平淡淡的日子，现在因为有你，反而有了很多可以期待的瞬间。
+            只是想到可能会见到你，就会觉得这一天挺不错。
           </p>
         </div>
 
         <div class="panel story-card four reveal">
-          <div class="mark">04 / 习惯</div>
-          <h4>很多关于你的事情，已经变成了习惯</h4>
+          <div class="mark">04 / 变化</div>
+          <h4>从同学到朋友，再到很特别的人</h4>
           <p>
-            比如会下意识看手机，比如会想你现在在做什么，比如会把一些很小的事也想讲给你听。
-            这些变化没有很夸张，但它们每天都在悄悄发生。
-            等回过头看，我才发现原来喜欢是会长出来的，像春天的叶子一样，自然而然。
+            我很喜欢我们关系变化的过程。
+            它不是一下子突然发生的，而是慢慢发生、慢慢积累、慢慢变得更近。
+            这种变化很安静，但特别真实，也特别珍贵。
           </p>
         </div>
 
         <div class="panel story-card five reveal">
           <div class="mark">05 / 认真</div>
-          <h4>我想让你知道，你对我来说不是“随便的人”</h4>
+          <h4>我是真的很在意你</h4>
           <p>
-            你会被我放进计划里，被我放进期待里，被我放进很多个认真想过的以后里。
-            我做这个网站不是为了显得厉害，而是想告诉你：
-            我是真的很在意你，也真的很珍惜我们之间正在发生的这些事。
+            也许很多话不用说得太重，但我希望你能感受到：
+            你对我来说不是普通的同学，也不是随便认识的人。
+            你是我会很认真记住、也很认真珍惜的人。
           </p>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section id="letter" class="section">
       <div class="section-head reveal">
-        <div class="section-title">一封会被 <span class="accent">打字出来的信</span></div>
+        <div class="section-title">写给你的 <span class="accent">一封信</span></div>
         <div class="section-note">
-          这一部分已经做成打字机效果了。打开页面后，文字会自动一行一行打出来。
+          这部分已经改成直接显示，不再用打字机效果。
         </div>
       </div>
 
       <div class="letter-shell">
         <div class="panel pad letter-panel reveal">
-          <div class="letter-title">写给你的话</div>
-          <div id="typewriter" class="typebox"></div>
+          <div class="letter-title">给你的话</div>
+          <div class="letter-text">亲爱的你：
+
+谢谢你出现在我的生活里，也谢谢你让我们从同班同学，慢慢变成了现在这样很熟、很自然、很愿意靠近的关系。
+
+我很喜欢和你一起玩的感觉。
+也很喜欢我们关系一点点变好的过程。
+从半年前开始，我们有了更多一起说话、一起笑、一起走路、一起分享日常的机会。
+这些事情看起来都很普通，但放在一起之后，就变成了我很想认真保存的回忆。
+
+你让我觉得，原来相处这件事可以这么舒服。
+不用太刻意，也不用太用力，只要和你在一起，很多平常的时刻都会变得很有意义。
+我会记得你认真说话的样子，也会记得那些和你一起度过的安静和开心。
+
+这个网页是我送你的礼物。
+它不一定复杂，但它是我认真做的。
+因为我想把我们的这段关系，和我对你的喜欢，都安安静静地放进来。
+希望你看到它的时候，会觉得开心，也会觉得被珍惜。
+
+以后还有很多日子可以一起过。
+还会有很多课间、很多放学路、很多聊天、很多一起玩的时刻。
+我希望这些以后，都还是和你一起。
+
+—— 一直很在意你的我</div>
         </div>
 
         <div class="frame reveal">
@@ -1046,10 +1065,10 @@
           <div class="confetti c5"></div>
 
           <div class="message">
-            <strong>这封信会慢慢出现</strong>
+            <strong>这一页留给我们</strong>
             <span>
-              你可以后面继续改成更像你自己的话。
-              现在先放一个温柔一点、完整一点的版本，页面会更像一个真正的礼物。
+              从同班到一起玩，从慢慢熟悉到越来越好。
+              这些变化很安静，但它们真的很珍贵。
             </span>
           </div>
         </div>
@@ -1058,45 +1077,41 @@
 
     <section class="section">
       <div class="section-head reveal">
-        <div class="section-title">再往后，是我们想一起过的 <span class="accent">很多天</span></div>
+        <div class="section-title">再往后，是我们一起写的 <span class="accent">很多天</span></div>
         <div class="section-note">
-          这部分适合做收尾，语言尽量温柔一点，会比较像礼物页面。
+          这段适合作为收尾，整体会更像一份完整的礼物。
         </div>
       </div>
 
       <div class="panel pad reveal">
         <p style="color:var(--muted);line-height:2.05;font-size:17px;max-width:980px;margin:0 auto;text-align:left;">
-          亲爱的你：
+          我们从同班同学开始认识，从半年前开始一起玩，后来关系一点点变得更好。
+          这种变化没有特别夸张，也没有什么很戏剧化的瞬间，但我觉得它比很多热闹的故事都更值得珍惜。
+          因为它很真实，也很自然。
           <br><br>
-          谢谢你出现在我的生活里，也谢谢你把那么多温柔留给我。
-          我知道我们在慢慢认识彼此，慢慢学着表达，慢慢学着怎么靠近，怎么理解，怎么把心里的感觉说出来。
-          这个过程也许不会一直很轻松，但正因为有这些过程，我们的故事才会这么真实。
+          我很喜欢现在的我们。
+          喜欢这种慢慢靠近、慢慢熟悉、慢慢变得更重要的感觉。
+          我也很想把这种感觉继续保留下去，让它在以后更多的日子里继续发生。
           <br><br>
-          我很喜欢你认真说话的样子，喜欢你回我消息的样子，喜欢你偶尔露出的小表情，喜欢和你待在一起时那种不用太用力也能觉得安心的感觉。
-          你让我知道，原来“被喜欢”不是只会开心，它还会让人变得更想好好生活。
-          <br><br>
-          所以我把这个网页送给你。它不是很复杂，也不是很华丽，但它里面装着很多我真的想记住的瞬间。
-          希望你点开它的时候，会觉得自己被珍惜，被认真对待，也被很用力地喜欢着。
-          <br><br>
-          以后还有很多个半年、很多次见面、很多顿饭、很多段路要一起走。
-          我会把这些都慢慢收好，继续和你一起往后写。
+          这个网站是给你的 520 礼物，也是我想认真记住我们这段关系的方式。
+          希望你会喜欢。
         </p>
 
         <div class="divider"></div>
 
         <div class="hero-actions" style="justify-content:center;">
           <span class="btn primary">520 快乐</span>
-          <span class="btn">谢谢你来到我身边</span>
+          <span class="btn">谢谢你一直在</span>
         </div>
       </div>
     </section>
 
     <section class="end">
       <div class="heart">💖</div>
-      <h2 class="gradient">以后也继续一起走吧。</h2>
+      <h2 class="gradient">以后也继续一起变好吧。</h2>
       <p>
-        这一页先写到这里。你后面把日期、称呼、照片位置、事件和文字都换成你们自己的内容，
-        它就会变成只属于你们两个人的纪念册。
+        从同班到一起玩，从普通到特别，从熟悉到越来越在意。
+        这些都不需要太大的声音，但它们已经很重要了。
       </p>
     </section>
   </div>
@@ -1110,41 +1125,6 @@
     }, { threshold: 0.12 });
 
     revealEls.forEach(el => io.observe(el));
-
-    const text = `亲爱的你：
-
-谢谢你愿意出现在我的生活里，也谢谢你把那么多温柔留给我。
-我知道这段时间里我们一直在慢慢认识彼此，慢慢学着怎么表达，怎么靠近，怎么理解。
-这些过程并不总是轻松，但正因为有这些过程，我们的故事才显得特别真实。
-
-我很喜欢你认真说话的样子，喜欢你回我消息的样子，喜欢你偶尔的小表情，也喜欢和你待在一起时那种不需要太用力就能觉得安心的感觉。
-你让我知道，原来喜欢一个人不只是开心，它还会让人变得更想认真生活。
-
-这个网页是我送你的 520 礼物，也是我想偷偷保存的一点心意。
-它不一定完美，但里面装着很多我真的想记住的瞬间。
-希望你点开它的时候，会觉得被珍惜，被认真对待，也被很用力地喜欢着。
-
-以后还有很多个半年、很多次见面、很多顿饭、很多段路要一起走。
-我会把这些都慢慢收好，和你一起往后写。
-
-—— 一直很在意你的我`;
-
-    const target = document.getElementById('typewriter');
-    let i = 0;
-
-    function typeLine(){
-      if(i <= text.length){
-        target.innerHTML = text.slice(0, i).replace(/\n/g, "<br>") + '<span class="cursor">▍</span>';
-        i++;
-        const ch = text[i - 1];
-        const delay = ch === '，' || ch === '。' || ch === '：' || ch === '！' || ch === '？' || ch === '\n' ? 120 : 28;
-        setTimeout(typeLine, delay);
-      } else {
-        target.innerHTML = text.replace(/\n/g, "<br>");
-      }
-    }
-
-    setTimeout(typeLine, 650);
   </script>
 </body>
 </html>

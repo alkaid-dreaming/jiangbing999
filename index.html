@@ -74,7 +74,6 @@
     .blob.two{ top:18%; right:-90px; background:radial-gradient(circle, rgba(184,220,255,.9), rgba(184,220,255,0)); animation-duration:14s; }
     .blob.three{ bottom:8%; left:20%; background:radial-gradient(circle, rgba(255,227,157,.9), rgba(255,227,157,0)); animation-duration:16s; }
 
-    /* 开屏 */
     .splash{
       position:fixed;
       inset:0;
@@ -86,7 +85,7 @@
         radial-gradient(circle at 80% 20%, rgba(184,220,255,.20), transparent 18%),
         radial-gradient(circle at 50% 80%, rgba(255,227,157,.16), transparent 18%),
         linear-gradient(180deg, rgba(255,250,252,.98), rgba(246,249,255,.98));
-      transition:opacity .7s ease, transform .7s ease;
+      transition:opacity .9s ease, transform .9s ease;
     }
 
     .splash.hide{
@@ -208,20 +207,6 @@
     .splash-art .h2{ top:34%; right:28%; animation-duration:9s; }
     .splash-art .h3{ bottom:18%; left:50%; animation-duration:10s; }
 
-    .doodle{
-      position:absolute;
-      stroke:#1d1f28;
-      stroke-width:3.2;
-      fill:none;
-      stroke-linecap:round;
-      stroke-linejoin:round;
-      opacity:.85;
-    }
-
-    .doodle.dog1{ width:170px; height:120px; left:12px; top:138px; transform:rotate(-8deg); }
-    .doodle.dog2{ width:150px; height:110px; right:16px; bottom:16px; transform:rotate(8deg); }
-    .doodle.dog3{ width:120px; height:90px; right:34px; top:36px; transform:rotate(2deg); }
-
     .envelope{
       position:absolute;
       inset:auto 50% 30px auto;
@@ -305,7 +290,7 @@
       animation: sheetRise 1.15s .62s cubic-bezier(.2,.8,.2,1) forwards;
     }
     .splash.play .envelope{
-      animation: envelopePulse .8s 1.65s ease forwards;
+      animation: envelopePulse .8s 2.2s ease forwards;
     }
 
     .splash-mini{
@@ -994,7 +979,6 @@
   </style>
 </head>
 <body class="locked">
-  <!-- 开屏 -->
   <div class="splash play" id="splash">
     <div class="splash-card">
       <div class="splash-inner">
@@ -1011,7 +995,6 @@
           </div>
           <div class="splash-actions">
             <a class="btn primary" href="javascript:void(0)" id="enterBtn">06 · 打开网页</a>
-            <a class="btn" href="#story" id="jumpBtn">07 · 直接看故事</a>
           </div>
         </div>
 
@@ -1023,47 +1006,14 @@
           <div class="tiny-heart h2">✨</div>
           <div class="tiny-heart h3">💞</div>
 
-          <svg class="doodle dog1" viewBox="0 0 200 140" aria-hidden="true">
-            <path d="M32 86c10-16 26-24 42-24 23 0 41 15 47 35 3 9 1 21-6 28"/>
-            <path d="M47 65c-4-18 7-35 24-41 16-6 34-2 45 10 5 5 9 11 11 17"/>
-            <path d="M59 56c-7-8-8-20-2-28"/>
-            <path d="M79 46c4-9 13-15 23-15 10 0 19 5 23 14"/>
-            <circle cx="73" cy="72" r="3"/>
-            <circle cx="98" cy="72" r="3"/>
-            <path d="M79 82c7 7 17 7 24 0"/>
-            <path d="M151 104c12 2 20 11 22 24"/>
-            <path d="M141 102c-5 10-9 16-18 21"/>
-            <path d="M149 38c10 4 18 11 24 21"/>
-          </svg>
-
-          <svg class="doodle dog2" viewBox="0 0 180 120" aria-hidden="true">
-            <path d="M24 77c10-14 24-21 39-21 19 0 34 12 40 28 3 8 2 18-3 25"/>
-            <path d="M40 57c-3-14 5-28 18-33 12-5 27-2 36 8 4 4 7 9 9 14"/>
-            <path d="M52 50c-6-6-7-15-2-22"/>
-            <path d="M69 41c3-7 10-11 17-11 8 0 15 4 18 11"/>
-            <circle cx="63" cy="66" r="3"/>
-            <circle cx="83" cy="66" r="3"/>
-            <path d="M66 75c5 5 12 5 17 0"/>
-            <path d="M131 92c8 3 13 10 15 19"/>
-            <path d="M124 90c-4 8-7 13-14 17"/>
-          </svg>
-
-          <svg class="doodle dog3" viewBox="0 0 140 90" aria-hidden="true">
-            <path d="M18 52c8-11 19-16 31-16 15 0 27 9 32 22 2 6 1 13-3 19"/>
-            <path d="M29 37c-2-10 4-20 14-24 9-3 21-1 28 6"/>
-            <circle cx="43" cy="50" r="2.8"/>
-            <circle cx="61" cy="50" r="2.8"/>
-            <path d="M45 58c4 4 9 4 13 0"/>
-          </svg>
-
           <div class="envelope" aria-hidden="true">
             <div class="letter-sheet"></div>
             <div class="flap"></div>
             <div class="envelope-body"></div>
             <div class="splash-mini">
-              <span class="line">08 · 打开这封信，网页会慢慢出现。</span>
-              <span class="line">09 · 这是一份只属于你们的 520 礼物。</span>
-              <span class="line"><b>10 · 一起往下看吧。</b></span>
+              <span class="line">07 · 打开这封信，网页会慢慢出现。</span>
+              <span class="line">08 · 这是一份只属于你们的 520 礼物。</span>
+              <span class="line"><b>09 · 一起往下看吧。</b></span>
             </div>
           </div>
         </div>
@@ -1081,13 +1031,12 @@
       <div class="hero-card">
         <div class="hero-inner">
           <div class="topbar">
-            <div class="pill"><span class="dot"></span> 11 · 520 纪念网页</div>
-            <div class="pill">12 · 同班同学 · 贴贴纸开始 · 2月17号</div>
+            <div class="pill"><span class="dot"></span> 11 · 2026.5.20</div>
           </div>
 
           <div class="hero-main">
             <div>
-              <div class="eyebrow">13 · 致 <b>最特别的你</b></div>
+              <div class="eyebrow">13 · 致 <b>我最喜欢的佳佳</b></div>
               <h1 class="gradient">14 · 把我喜欢你的这件事，认真写成一份礼物。</h1>
               <p class="sub">
                 15 · 我们一开始是同班同学，后来因为一起玩贴贴纸，关系越来越近。<br>
@@ -1120,39 +1069,6 @@
               <div class="tiny-heart h2">✨</div>
               <div class="tiny-heart h3">💞</div>
               <div class="tiny-heart h4">🌷</div>
-
-              <svg class="doodle dog1" viewBox="0 0 200 140" aria-hidden="true">
-                <path d="M32 86c10-16 26-24 42-24 23 0 41 15 47 35 3 9 1 21-6 28"/>
-                <path d="M47 65c-4-18 7-35 24-41 16-6 34-2 45 10 5 5 9 11 11 17"/>
-                <path d="M59 56c-7-8-8-20-2-28"/>
-                <path d="M79 46c4-9 13-15 23-15 10 0 19 5 23 14"/>
-                <circle cx="73" cy="72" r="3"/>
-                <circle cx="98" cy="72" r="3"/>
-                <path d="M79 82c7 7 17 7 24 0"/>
-                <path d="M151 104c12 2 20 11 22 24"/>
-                <path d="M141 102c-5 10-9 16-18 21"/>
-                <path d="M149 38c10 4 18 11 24 21"/>
-              </svg>
-
-              <svg class="doodle dog2" viewBox="0 0 180 120" aria-hidden="true">
-                <path d="M24 77c10-14 24-21 39-21 19 0 34 12 40 28 3 8 2 18-3 25"/>
-                <path d="M40 57c-3-14 5-28 18-33 12-5 27-2 36 8 4 4 7 9 9 14"/>
-                <path d="M52 50c-6-6-7-15-2-22"/>
-                <path d="M69 41c3-7 10-11 17-11 8 0 15 4 18 11"/>
-                <circle cx="63" cy="66" r="3"/>
-                <circle cx="83" cy="66" r="3"/>
-                <path d="M66 75c5 5 12 5 17 0"/>
-                <path d="M131 92c8 3 13 10 15 19"/>
-                <path d="M124 90c-4 8-7 13-14 17"/>
-              </svg>
-
-              <svg class="doodle dog3" viewBox="0 0 140 90" aria-hidden="true">
-                <path d="M18 52c8-11 19-16 31-16 15 0 27 9 32 22 2 6 1 13-3 19"/>
-                <path d="M29 37c-2-10 4-20 14-24 9-3 21-1 28 6"/>
-                <circle cx="43" cy="50" r="2.8"/>
-                <circle cx="61" cy="50" r="2.8"/>
-                <path d="M45 58c4 4 9 4 13 0"/>
-              </svg>
             </div>
           </div>
 
@@ -1174,7 +1090,7 @@
 
       <div class="glass-grid">
         <div class="panel pad intro reveal">
-          <h2>31 · 一开始只是同班，后来因为一起玩贴贴纸，慢慢就不一样了。</h2>
+          <h2>31 · 改变 往往源于一场美妙的奇遇</h2>
           <p>
             32 · 我记得那时候很自然，像是顺手就走近了。<br>
             33 · 我先喜欢上你，这件事我其实想了很久。<br>
@@ -1360,7 +1276,7 @@
     <section class="end">
       <div class="heart">💖</div>
       <h2 class="gradient">97 · 以后也继续一起走吧。</h2>
-      <p>98 · 从贴贴纸开始，到 2 月 17 号，我们已经有了很特别的故事。</p>
+      <p>98 · 酱饼999！</p>
     </section>
   </div>
 
@@ -1375,7 +1291,6 @@
 
     const splash = document.getElementById('splash');
     const enterBtn = document.getElementById('enterBtn');
-    const jumpBtn = document.getElementById('jumpBtn');
     const body = document.body;
 
     function hideSplash(){
@@ -1384,7 +1299,7 @@
         body.classList.remove('locked');
         setTimeout(() => {
           splash.style.display = 'none';
-        }, 750);
+        }, 900);
       }
     }
 
@@ -1393,11 +1308,7 @@
       hideSplash();
     });
 
-    jumpBtn.addEventListener('click', () => {
-      hideSplash();
-    });
-
-    setTimeout(hideSplash, 3000);
+    setTimeout(hideSplash, 5200);
 
     const text = `01 · 亲爱的你：
 

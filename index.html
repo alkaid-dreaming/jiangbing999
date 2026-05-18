@@ -41,9 +41,7 @@
         linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 48%, var(--bg3) 100%);
     }
 
-    body.locked{
-      overflow:hidden;
-    }
+    body.locked{ overflow:hidden; }
 
     a{ color:inherit; text-decoration:none; }
     .wrap{ position:relative; z-index:1; }
@@ -223,6 +221,112 @@
     .doodle.dog1{ width:170px; height:120px; left:12px; top:138px; transform:rotate(-8deg); }
     .doodle.dog2{ width:150px; height:110px; right:16px; bottom:16px; transform:rotate(8deg); }
     .doodle.dog3{ width:120px; height:90px; right:34px; top:36px; transform:rotate(2deg); }
+
+    .envelope{
+      position:absolute;
+      inset:auto 50% 30px auto;
+      width:220px;
+      height:140px;
+      transform:translateX(50%);
+      border-radius:18px;
+      background:linear-gradient(180deg, rgba(255,255,255,.9), rgba(247,248,255,.9));
+      border:1px solid rgba(31,35,46,.08);
+      box-shadow:0 16px 36px rgba(67,58,87,.08);
+      overflow:hidden;
+      opacity:0;
+      animation: envelopeAppear .9s .2s ease forwards;
+    }
+
+    .envelope-body{
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(135deg, rgba(255,126,168,.18), transparent 32%),
+        linear-gradient(225deg, rgba(184,220,255,.16), transparent 32%),
+        linear-gradient(180deg, rgba(255,255,255,.86), rgba(244,246,255,.86));
+    }
+
+    .envelope-body::before,
+    .envelope-body::after{
+      content:"";
+      position:absolute;
+      left:0;
+      right:0;
+      height:0;
+      border-left:110px solid transparent;
+      border-right:110px solid transparent;
+      pointer-events:none;
+    }
+
+    .envelope-body::before{
+      bottom:0;
+      border-bottom:62px solid rgba(255,227,157,.24);
+    }
+
+    .envelope-body::after{
+      top:0;
+      border-top:62px solid rgba(255,126,168,.18);
+    }
+
+    .flap{
+      position:absolute;
+      left:0;
+      right:0;
+      top:-1px;
+      height:74px;
+      transform-origin:top center;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.95), rgba(255,255,255,.65));
+      clip-path:polygon(0 0, 50% 100%, 100% 0);
+      border-bottom:1px solid rgba(31,35,46,.07);
+    }
+
+    .letter-sheet{
+      position:absolute;
+      left:12px;
+      right:12px;
+      bottom:10px;
+      height:148px;
+      border-radius:16px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255,126,168,.16), transparent 18%),
+        radial-gradient(circle at 80% 20%, rgba(184,220,255,.16), transparent 18%),
+        linear-gradient(180deg, rgba(255,255,255,.98), rgba(250,251,255,.98));
+      border:1px solid rgba(31,35,46,.08);
+      box-shadow:0 10px 22px rgba(67,58,87,.08);
+      transform:translateY(34px) scale(.96);
+      opacity:0;
+    }
+
+    .splash.play .flap{
+      animation: flapOpen 1.1s .55s ease forwards;
+    }
+    .splash.play .letter-sheet{
+      animation: sheetRise 1.15s .62s cubic-bezier(.2,.8,.2,1) forwards;
+    }
+    .splash.play .envelope{
+      animation: envelopePulse .8s 1.65s ease forwards;
+    }
+
+    .splash-mini{
+      position:absolute;
+      left:16px;
+      right:16px;
+      bottom:16px;
+      text-align:left;
+      color:#3d4451;
+      font-size:13px;
+      line-height:1.7;
+    }
+
+    .splash-mini .line{
+      display:block;
+      margin-bottom:4px;
+    }
+
+    .splash-mini b{
+      color:#11131a;
+    }
 
     .section{
       width:min(1160px, calc(100% - 24px));
@@ -789,6 +893,28 @@
       50%,100%{ opacity:0; }
     }
 
+    @keyframes envelopeAppear{
+      from{ opacity:0; transform:translateX(50%) translateY(14px) scale(.96); }
+      to{ opacity:1; transform:translateX(50%) translateY(0) scale(1); }
+    }
+
+    @keyframes flapOpen{
+      0%{ transform:rotateX(0deg) translateY(0); }
+      50%{ transform:rotateX(-80deg) translateY(-2px); }
+      100%{ transform:rotateX(-128deg) translateY(-14px); opacity:.95; }
+    }
+
+    @keyframes sheetRise{
+      0%{ opacity:0; transform:translateY(34px) scale(.96); }
+      30%{ opacity:1; }
+      100%{ opacity:1; transform:translateY(-96px) scale(1); }
+    }
+
+    @keyframes envelopePulse{
+      from{ transform:translateX(50%) scale(1); }
+      to{ transform:translateX(50%) scale(.96); opacity:0; }
+    }
+
     @media (max-width: 980px){
       .splash-inner,
       .hero-main,
@@ -809,6 +935,17 @@
 
       .splash-art{
         min-height:260px;
+      }
+
+      .envelope{
+        width:180px;
+        height:120px;
+      }
+
+      .envelope-body::before,
+      .envelope-body::after{
+        border-left-width:90px;
+        border-right-width:90px;
       }
 
       .hero-inner{
@@ -858,7 +995,7 @@
 </head>
 <body class="locked">
   <!-- 开屏 -->
-  <div class="splash" id="splash">
+  <div class="splash play" id="splash">
     <div class="splash-card">
       <div class="splash-inner">
         <div>
@@ -866,15 +1003,15 @@
             <span class="dot"></span>
             <span>01 · 520 纪念网页</span>
           </div>
-          <div class="splash-title gradient">给最爱的你</div>
+          <div class="splash-title gradient">02 · 给最爱的你</div>
           <div class="splash-sub">
-            这是一份专属于你们的礼物。<br>
-            从同班，到一起玩贴贴纸，到关系越来越近，再到 2 月 17 号把喜欢说出口。<br>
-            这些片段不需要很大声，也已经足够珍贵。
+            03 · 这是一封写给你的信。<br>
+            04 · 从同班，到一起玩贴贴纸，到关系越来越近，再到 2 月 17 号把喜欢说出口。<br>
+            05 · 这些片段不需要很大声，也已经足够珍贵。
           </div>
           <div class="splash-actions">
-            <a class="btn primary" href="javascript:void(0)" id="enterBtn">01 进入网页</a>
-            <a class="btn" href="#story" id="jumpBtn">02 直接看故事</a>
+            <a class="btn primary" href="javascript:void(0)" id="enterBtn">06 · 打开网页</a>
+            <a class="btn" href="#story" id="jumpBtn">07 · 直接看故事</a>
           </div>
         </div>
 
@@ -886,7 +1023,6 @@
           <div class="tiny-heart h2">✨</div>
           <div class="tiny-heart h3">💞</div>
 
-          <!-- 原创线条小狗涂鸦 -->
           <svg class="doodle dog1" viewBox="0 0 200 140" aria-hidden="true">
             <path d="M32 86c10-16 26-24 42-24 23 0 41 15 47 35 3 9 1 21-6 28"/>
             <path d="M47 65c-4-18 7-35 24-41 16-6 34-2 45 10 5 5 9 11 11 17"/>
@@ -919,6 +1055,17 @@
             <circle cx="61" cy="50" r="2.8"/>
             <path d="M45 58c4 4 9 4 13 0"/>
           </svg>
+
+          <div class="envelope" aria-hidden="true">
+            <div class="letter-sheet"></div>
+            <div class="flap"></div>
+            <div class="envelope-body"></div>
+            <div class="splash-mini">
+              <span class="line">08 · 打开这封信，网页会慢慢出现。</span>
+              <span class="line">09 · 这是一份只属于你们的 520 礼物。</span>
+              <span class="line"><b>10 · 一起往下看吧。</b></span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -934,33 +1081,33 @@
       <div class="hero-card">
         <div class="hero-inner">
           <div class="topbar">
-            <div class="pill"><span class="dot"></span> 01 · 520 纪念网页</div>
-            <div class="pill">02 · 同班同学 · 贴贴纸开始 · 2月17号</div>
+            <div class="pill"><span class="dot"></span> 11 · 520 纪念网页</div>
+            <div class="pill">12 · 同班同学 · 贴贴纸开始 · 2月17号</div>
           </div>
 
           <div class="hero-main">
             <div>
-              <div class="eyebrow">致 <b>最特别的你</b></div>
-              <h1 class="gradient">把我喜欢你的这件事，认真写成一份礼物。</h1>
+              <div class="eyebrow">13 · 致 <b>最特别的你</b></div>
+              <h1 class="gradient">14 · 把我喜欢你的这件事，认真写成一份礼物。</h1>
               <p class="sub">
-                我们一开始是同班同学，后来因为一起玩贴贴纸，关系越来越近。
-                我先喜欢上了你，后来你不小心看见了我和闺蜜说喜欢你的事。
-                我以为会有一点尴尬，没想到我们的关系没有变差，反而更好了。
-                再后来，2 月 17 号你也跟我表白了。
+                15 · 我们一开始是同班同学，后来因为一起玩贴贴纸，关系越来越近。<br>
+                16 · 我先喜欢上了你，后来你不小心看见了我和闺蜜说喜欢你的事。<br>
+                17 · 我以为会有一点尴尬，没想到我们的关系没有变差，反而更好了。<br>
+                18 · 再后来，2 月 17 号你也跟我表白了。
               </p>
 
               <div class="hero-actions">
-                <a class="btn primary" href="#story">01 · 开始看故事</a>
-                <a class="btn" href="#timeline">02 · 看时间线</a>
-                <a class="btn" href="#letter">03 · 看信</a>
+                <a class="btn primary" href="#story">19 · 开始看故事</a>
+                <a class="btn" href="#timeline">20 · 看时间线</a>
+                <a class="btn" href="#letter">21 · 看信</a>
               </div>
 
               <div class="bubble-cloud">
-                <span class="mini-chip pink">01 贴贴纸</span>
-                <span class="mini-chip blue">02 我先喜欢上你</span>
-                <span class="mini-chip gold">03 你看到了秘密</span>
-                <span class="mini-chip green">04 关系没有变差</span>
-                <span class="mini-chip lav">05 2月17号表白</span>
+                <span class="mini-chip pink">22 · 一起玩贴贴纸</span>
+                <span class="mini-chip blue">23 · 我先喜欢上你</span>
+                <span class="mini-chip gold">24 · 你看到了秘密</span>
+                <span class="mini-chip green">25 · 关系没有变差</span>
+                <span class="mini-chip lav">26 · 2月17号表白</span>
               </div>
             </div>
 
@@ -974,7 +1121,6 @@
               <div class="tiny-heart h3">💞</div>
               <div class="tiny-heart h4">🌷</div>
 
-              <!-- 原创线条小狗涂鸦 -->
               <svg class="doodle dog1" viewBox="0 0 200 140" aria-hidden="true">
                 <path d="M32 86c10-16 26-24 42-24 23 0 41 15 47 35 3 9 1 21-6 28"/>
                 <path d="M47 65c-4-18 7-35 24-41 16-6 34-2 45 10 5 5 9 11 11 17"/>
@@ -1011,8 +1157,8 @@
           </div>
 
           <div class="hero-footer">
-            <span>03 · 从同班到一起玩，再到互相喜欢。</span>
-            <span>04 · 这段关系最好的地方，就是它一直在往前走。</span>
+            <span>27 · 从同班到一起玩，再到互相喜欢。</span>
+            <span>28 · 这段关系最好的地方，就是它一直在往前走。</span>
           </div>
         </div>
       </div>
@@ -1020,38 +1166,38 @@
 
     <section id="story" class="section">
       <div class="section-head reveal">
-        <div class="section-title">01 · <span class="accent">故事开场</span></div>
+        <div class="section-title">29 · <span class="accent">故事开场</span></div>
         <div class="section-note">
-          一点点靠近，一点点心动，一点点把彼此放进心里。
+          30 · 一点点靠近，一点点心动，一点点把彼此放进心里。
         </div>
       </div>
 
       <div class="glass-grid">
         <div class="panel pad intro reveal">
-          <h2>一开始只是同班，后来因为一起玩贴贴纸，慢慢就不一样了。</h2>
+          <h2>31 · 一开始只是同班，后来因为一起玩贴贴纸，慢慢就不一样了。</h2>
           <p>
-            我记得那时候很自然，像是顺手就走近了。
-            我先喜欢上你，后来你无意间看到了我和闺蜜说喜欢你的事。
-            我原本有点紧张，没想到你没有让它变尴尬，反而让我们更近了。
+            32 · 我记得那时候很自然，像是顺手就走近了。<br>
+            33 · 我先喜欢上你，这件事我其实想了很久。<br>
+            34 · 后来你无意间看到了我和闺蜜说喜欢你的事，我原本有点紧张，没想到事情没有变尴尬，反而让我们更近了。
           </p>
           <p>
-            这件事对我来说很重要，因为它让我更确定：你不是会轻易走散的人。
-            我喜欢和你在一起的感觉，也喜欢我们关系一步一步变好的样子。
+            35 · 这件事对我来说很重要，因为它让我更确定：你不是会轻易走散的人。<br>
+            36 · 我喜欢和你在一起的感觉，也喜欢我们关系一步一步变好的样子。
           </p>
         </div>
 
         <div class="stats">
           <div class="panel stat pink reveal">
-            <div class="num">01</div>
-            <div class="label">贴贴纸是开始，像一个很轻的开头，却把后面的故事都带出来了。</div>
+            <div class="num">37 · 01</div>
+            <div class="label">38 · 贴贴纸是开始，像一个很轻的开头，却把后面的故事都带出来了。</div>
           </div>
           <div class="panel stat blue reveal">
-            <div class="num">02</div>
-            <div class="label">你看到秘密之后，我们没有变远，反而更自然了。</div>
+            <div class="num">39 · 02</div>
+            <div class="label">40 · 你看到秘密之后，我们没有变远，反而更自然了。</div>
           </div>
           <div class="panel stat gold reveal">
-            <div class="num">03</div>
-            <div class="label">2月17号那天，你跟我表白，我真的很开心。</div>
+            <div class="num">41 · 03</div>
+            <div class="label">42 · 2月17号那天，你跟我表白，我真的很开心。</div>
           </div>
         </div>
       </div>
@@ -1059,61 +1205,61 @@
 
     <section id="timeline" class="section">
       <div class="section-head reveal">
-        <div class="section-title">02 · <span class="accent">重要瞬间</span></div>
+        <div class="section-title">43 · <span class="accent">重要瞬间</span></div>
         <div class="section-note">
-          内容精简了一些，保留最关键的节点。
+          44 · 内容精简了一些，保留最关键的节点。
         </div>
       </div>
 
       <div class="timeline">
         <div class="panel event reveal">
-          <div class="date">01 · 贴贴纸</div>
+          <div class="date">45 · 贴贴纸</div>
           <div class="content">
-            <h3>很普通的开始，却是我很喜欢的开始。</h3>
+            <h3>46 · 很普通的开始，却是我很喜欢的开始。</h3>
             <p>
-              我们因为一起玩贴贴纸变得更熟。
-              那时候还只是“和你一起玩挺开心”，后来慢慢就变成了“我会很在意你”。
+              47 · 我们因为一起玩贴贴纸变得更熟。<br>
+              48 · 那时候还只是“和你一起玩挺开心”，后来慢慢就变成了“我会很在意你”。
             </p>
             <div class="tag-row">
-              <span class="tag pink">01 开始</span>
-              <span class="tag blue">02 靠近</span>
-              <span class="tag gold">03 开心</span>
+              <span class="tag pink">49 · 开始</span>
+              <span class="tag blue">50 · 靠近</span>
+              <span class="tag gold">51 · 开心</span>
             </div>
-            <div class="quote">“原来喜欢一个人，可以从很好玩开始。”</div>
+            <div class="quote">52 · “原来喜欢一个人，可以从很好玩开始。”</div>
           </div>
         </div>
 
         <div class="panel event reveal">
-          <div class="date">02 · 发现</div>
+          <div class="date">53 · 发现</div>
           <div class="content">
-            <h3>你看到我和闺蜜聊我喜欢你的那一刻。</h3>
+            <h3>54 · 你看到我和闺蜜聊我喜欢你的那一刻。</h3>
             <p>
-              我原本以为会慌，会尴尬，会不知道怎么面对。
-              结果没有。我们没有因为这件事变远，反而更自然、更靠近了。
+              55 · 我原本以为会慌，会尴尬，会不知道怎么面对。<br>
+              56 · 结果没有。我们没有因为这件事变远，反而更自然、更靠近了。
             </p>
             <div class="tag-row">
-              <span class="tag pink">04 秘密</span>
-              <span class="tag blue">05 默契</span>
-              <span class="tag green">06 更近了</span>
+              <span class="tag pink">57 · 秘密</span>
+              <span class="tag blue">58 · 默契</span>
+              <span class="tag green">59 · 更近了</span>
             </div>
-            <div class="quote">“有些心动被发现以后，不是结束，是更确定。”</div>
+            <div class="quote">60 · “有些心动被发现以后，不是结束，是更确定。”</div>
           </div>
         </div>
 
         <div class="panel event reveal">
-          <div class="date">03 · 2月17号</div>
+          <div class="date">61 · 2月17号</div>
           <div class="content">
-            <h3>你跟我表白的那天，我真的很开心。</h3>
+            <h3>62 · 你跟我表白的那天，我真的很开心。</h3>
             <p>
-              那一天很重要，因为我们终于把彼此的喜欢说得很清楚。
-              从那之后，我们不只是喜欢和在意，而是正式地走到了一起。
+              63 · 那一天很重要，因为我们终于把彼此的喜欢说得很清楚。<br>
+              64 · 从那之后，我们不只是喜欢和在意，而是正式地走到了一起。
             </p>
             <div class="tag-row">
-              <span class="tag pink">07 表白</span>
-              <span class="tag blue">08 确定</span>
-              <span class="tag gold">09 纪念日</span>
+              <span class="tag pink">65 · 表白</span>
+              <span class="tag blue">66 · 确定</span>
+              <span class="tag gold">67 · 纪念日</span>
             </div>
-            <div class="quote">“那一刻我知道，我们是真的在一起了。”</div>
+            <div class="quote">68 · “那一刻我知道，我们是真的在一起了。”</div>
           </div>
         </div>
       </div>
@@ -1121,37 +1267,37 @@
 
     <section class="section">
       <div class="section-head reveal">
-        <div class="section-title">03 · <span class="accent">我很想记住的感觉</span></div>
+        <div class="section-title">69 · <span class="accent">我很想记住的感觉</span></div>
         <div class="section-note">
-          这里放一点更像情话的话，避免太重复。
+          70 · 这里放一点更像情话的话，避免太重复。
         </div>
       </div>
 
       <div class="story-grid">
         <div class="panel story-card one reveal">
-          <div class="mark">01 / 心动</div>
-          <h4>你一出现，我就会开心一点</h4>
+          <div class="mark">71 · 心动</div>
+          <h4>72 · 你一出现，我就会开心一点</h4>
           <p>
-            不是很夸张的那种开心，是很安静、很自然的那种。
-            像心里突然亮了一下。
+            73 · 不是很夸张的那种开心，是很安静、很自然的那种。<br>
+            74 · 像心里突然亮了一下。
           </p>
         </div>
 
         <div class="panel story-card two reveal">
-          <div class="mark">02 / 喜欢</div>
-          <h4>我喜欢你，不只是因为你很好看</h4>
+          <div class="mark">75 · 喜欢</div>
+          <h4>76 · 我喜欢你，不只是因为你很好看</h4>
           <p>
-            还因为和你待在一起的时候很舒服。
-            你让我觉得，很多普通的日子都变得很好。
+            77 · 还因为和你待在一起的时候很舒服。<br>
+            78 · 你让我觉得，很多普通的日子都变得很好。
           </p>
         </div>
 
         <div class="panel story-card three reveal">
-          <div class="mark">03 / 以后</div>
-          <h4>以后我也想继续和你一起走</h4>
+          <div class="mark">79 · 以后</div>
+          <h4>80 · 以后我也想继续和你一起走</h4>
           <p>
-            以后还有很多课间、很多聊天、很多一起玩的时刻。
-            我想继续把这些都和你一起收好。
+            81 · 以后还有很多课间、很多聊天、很多一起玩的时刻。<br>
+            82 · 我想继续把这些都和你一起收好。
           </p>
         </div>
       </div>
@@ -1159,15 +1305,15 @@
 
     <section id="letter" class="section">
       <div class="section-head reveal">
-        <div class="section-title">04 · <span class="accent">写给你的信</span></div>
+        <div class="section-title">83 · <span class="accent">写给你的信</span></div>
         <div class="section-note">
-          打字机效果会在这一块进入屏幕中间时才开始。
+          84 · 打字机效果会在这一块进入屏幕中间时才开始。
         </div>
       </div>
 
       <div class="letter-shell">
-        <div class="panel pad letter-panel reveal">
-          <div class="letter-title">给你的话</div>
+        <div class="panel pad letter-panel reveal" id="letterPanel">
+          <div class="letter-title">85 · 给你的话</div>
           <div class="letter-text"><span id="typedText"></span><span id="cursor" class="cursor">▍</span></div>
         </div>
 
@@ -1181,10 +1327,10 @@
           <div class="confetti c5"></div>
 
           <div class="message">
-            <strong>05 · 这一页留给我们</strong>
+            <strong>86 · 这一页留给我们</strong>
             <span>
-              从同班到一起玩，从喜欢被发现，到 2 月 17 号的表白。
-              这些都不是很大的事，但它们把我们推到了现在。
+              87 · 从同班到一起玩，从喜欢被发现，到 2 月 17 号的表白。<br>
+              88 · 这些都不是很大的事，但它们把我们推到了现在。
             </span>
           </div>
         </div>
@@ -1194,29 +1340,27 @@
     <section class="section">
       <div class="panel pad reveal">
         <p style="color:var(--muted);line-height:2.05;font-size:17px;max-width:920px;margin:0 auto;text-align:left;">
-          这份礼物写到这里就差不多了。
-          我们的故事不需要很多词来证明，它本来就已经很清楚了：
-          从同班同学，到一起玩贴贴纸，到互相喜欢，最后走到一起。
-          <br><br>
-          我会很珍惜现在的我们，也很珍惜以后还能继续一起走下去的每一天。
-          希望你看到这个网页的时候，会觉得开心。
-          <br><br>
-          也希望你知道，我是真的很喜欢你。
+          89 · 这份礼物写到这里就差不多了。<br>
+          90 · 我们的故事不需要很多词来证明，它本来就已经很清楚了：<br>
+          91 · 从同班同学，到一起玩贴贴纸，到互相喜欢，最后走到一起。<br><br>
+          92 · 我会很珍惜现在的我们，也很珍惜以后还能继续一起走下去的每一天。<br>
+          93 · 希望你看到这个网页的时候，会觉得开心。<br><br>
+          94 · 也希望你知道，我是真的很喜欢你。
         </p>
 
         <div class="divider"></div>
 
         <div class="hero-actions" style="justify-content:center;">
-          <span class="btn primary">06 · 520 快乐</span>
-          <span class="btn">07 · 谢谢你来到我身边</span>
+          <span class="btn primary">95 · 520 快乐</span>
+          <span class="btn">96 · 谢谢你来到我身边</span>
         </div>
       </div>
     </section>
 
     <section class="end">
       <div class="heart">💖</div>
-      <h2 class="gradient">08 · 以后也继续一起走吧。</h2>
-      <p>从贴贴纸开始，到2月17号，我们已经有了很特别的故事。</p>
+      <h2 class="gradient">97 · 以后也继续一起走吧。</h2>
+      <p>98 · 从贴贴纸开始，到 2 月 17 号，我们已经有了很特别的故事。</p>
     </section>
   </div>
 
@@ -1253,39 +1397,38 @@
       hideSplash();
     });
 
-    setTimeout(hideSplash, 2500);
+    setTimeout(hideSplash, 3000);
 
-    const text = `亲爱的你：
+    const text = `01 · 亲爱的你：
 
-我一直觉得，我们这段关系很特别。
+02 · 我一直觉得，我们这段关系很特别。
 
-一开始我们只是同班同学，后来因为一起玩贴贴纸，慢慢变得更熟。
-我先喜欢上了你，这件事我记了很久。
-后来你无意间看到了我和闺蜜聊我喜欢你的事，我其实有点紧张，
-但没想到你没有让它变尴尬，反而让我们之间更近了。
+03 · 一开始我们只是同班同学，后来因为一起玩贴贴纸，慢慢变得更熟。
+04 · 我先喜欢上了你，这件事我记了很久。
+05 · 后来你无意间看到了我和闺蜜聊我喜欢你的事，我其实有点紧张，
+06 · 但没想到你没有让它变尴尬，反而让我们之间更近了。
 
-再后来，2月17号你跟我表白了。
-那一刻我真的很开心，也很确定：我很喜欢你，而且我想认真地和你继续走下去。
+07 · 再后来，2月17号你跟我表白了。
+08 · 那一刻我真的很开心，也很确定：我很喜欢你，而且我想认真地和你继续走下去。
 
-我喜欢你，很喜欢。
-喜欢你在我身边时那种安心的感觉，
-喜欢和你一起玩的时候那种轻松，
-也喜欢我们越来越靠近的样子。
+09 · 我喜欢你，很喜欢。
+10 · 喜欢你在我身边时那种安心的感觉，
+11 · 喜欢和你一起玩的时候那种轻松，
+12 · 也喜欢我们越来越靠近的样子。
 
-这份礼物没有做得很复杂，
-但它装着我很认真的心情。
-希望你看到它的时候，会觉得开心，
-也会知道你对我来说一直都很重要。
+13 · 这份礼物没有做得很复杂，
+14 · 但它装着我很认真的心情。
+15 · 希望你看到它的时候，会觉得开心，
+16 · 也会知道你对我来说一直都很重要。
 
-—— 很喜欢你的我`;
+17 · —— 很喜欢你的我`;
 
     const typedText = document.getElementById('typedText');
     const cursor = document.getElementById('cursor');
-    const letterSection = document.getElementById('letter');
+    const letterPanel = document.getElementById('letterPanel');
 
     let started = false;
     let index = 0;
-    let typingTimer = null;
 
     function typeNext(){
       if (index <= text.length){
@@ -1293,7 +1436,7 @@
         index++;
         const ch = text[index - 1] || '';
         const delay = (ch === '，' || ch === '。' || ch === '：' || ch === '！' || ch === '？' || ch === '\n') ? 120 : 28;
-        typingTimer = setTimeout(typeNext, delay);
+        setTimeout(typeNext, delay);
       } else {
         cursor.style.display = 'none';
       }
@@ -1305,20 +1448,19 @@
       typeNext();
     }
 
-    const letterObserver = new IntersectionObserver((entries) => {
+    const typingObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting){
           startTyping();
-          letterObserver.disconnect();
+          typingObserver.disconnect();
         }
       });
     }, {
-      root: null,
       threshold: 0.2,
-      rootMargin: '-35% 0px -35% 0px'
+      rootMargin: '-42% 0px -42% 0px'
     });
 
-    letterObserver.observe(letterSection);
+    typingObserver.observe(letterPanel);
   </script>
 </body>
 </html>
